@@ -6,39 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="fc9154e0-ac4f-4dee-a3f8-ebddb678a8d5" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Client/.idea/libraries/google_code_gson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/output/production/Client/.idea/Client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/output/production/Client/Client.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Client/src/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/output/production/Server/.idea/Server.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/output/production/Server/Server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/LibraryManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/network/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LibraryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/LibraryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -51,44 +31,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Server&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Server.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.network.Server" />
+      <option name="MAIN_CLASS_NAME" value="src.Server" />
       <module name="Server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="src.network.*" />
+          <option name="PATTERN" value="src.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,9 +93,7 @@
       <updated>1713546623184</updated>
       <workItem from="1713546624531" duration="63000" />
       <workItem from="1714005043119" duration="693000" />
-      <workItem from="1714005762870" duration="4595000" />
-      <workItem from="1714012280834" duration="820000" />
-      <workItem from="1714099401666" duration="740000" />
+      <workItem from="1714005762870" duration="301000" />
     </task>
     <servers />
   </component>

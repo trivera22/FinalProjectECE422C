@@ -1,10 +1,11 @@
-package src;
+package src.library;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
 
-abstract class LibraryItem {
+public abstract class LibraryItem implements Serializable{
     private String title;
     private String author;
     private String summary;
@@ -84,7 +85,6 @@ abstract class LibraryItem {
             this.duration = duration;
         }
     }
-
     class Game extends LibraryItem{
         private String platform; //like pc,ps4
 
@@ -92,5 +92,23 @@ abstract class LibraryItem {
             super(title, author, summary, image);
             this.platform = platform;
         }
+    }
+    public String getTitle(){
+        return title;
+    }
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public String getAuthor(){
+        return author;
+    }
+    public void setAuthor(String author){
+        this.author = author;
+    }
+    public String getSummary(){
+        return summary;
+    }
+    public void setSummary(String summary){
+        this.summary = summary;
     }
 }

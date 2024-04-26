@@ -1,4 +1,4 @@
-package src;
+package src.network;
 
 class Message {
     String type;
