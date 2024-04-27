@@ -42,14 +42,41 @@ public class LibraryServer {
         }
 
         public void run() {
-            Book book = new Book("A Tale of Two Cities", "Charles Dickens", "Some book", 93, null);
-            try {
-                ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
-                oos.writeObject(book);
-                oos.flush();
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
+                try(ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+
+                    //send all books to the client
+                    for (LibraryItem item : catalogue.getItems().values()) {
+                        if (item instanceof Book) {
+                            oos.writeObject((Book) item);
+                            oos.reset();
+                        }
+                    }
+
+                    //send "end" message to indicate all books have been sent
+                    oos.writeObject("end");
+                    oos.reset();
+
+                    // handle checkout request from client
+                    while (true) {
+                        String message = reader.readLine();
+                        if (message != null) {
+                            String[] parts = message.split(":");
+                            if (parts.length == 2) {
+                                String username = parts[0];
+                                String bookTitle = parts[1];
+                                boolean result = catalogue.checkOutItem(bookTitle, username);
+                                System.out.println("checkout request received for book: " + bookTitle + " by user: " + username);
+                                System.out.println("sending response: " + result);
+                                oos.writeObject(result);
+                                oos.reset();
+                                oos.flush();
+                            }
+                        }
+                    }
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
         }
     }
 }
