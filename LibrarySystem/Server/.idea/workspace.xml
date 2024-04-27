@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc9154e0-ac4f-4dee-a3f8-ebddb678a8d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/LibraryClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LibraryCatalogue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LibraryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/Server/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/LibraryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/LibraryManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryServer.java" afterDir="false" />
-    </list>
+    <list default="true" id="fc9154e0-ac4f-4dee-a3f8-ebddb678a8d5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +113,7 @@
       <workItem from="1714005043119" duration="693000" />
       <workItem from="1714005762870" duration="4595000" />
       <workItem from="1714012280834" duration="820000" />
-      <workItem from="1714099401666" duration="7534000" />
+      <workItem from="1714099401666" duration="7755000" />
     </task>
     <servers />
   </component>
