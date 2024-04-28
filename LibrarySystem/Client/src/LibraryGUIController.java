@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LibraryGUIController {
     @FXML
@@ -70,5 +71,10 @@ public class LibraryGUIController {
                 }
             }).start();
         }
+    }
+
+    public void updateCheckedOutList(List<String> checkedOutBooks) {
+        checkedOutList.getItems().clear();
+        checkedOutList.getItems().addAll(checkedOutBooks);
     }
 }

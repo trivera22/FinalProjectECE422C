@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.List;
 
 public class LibraryClient extends Application {
     @FXML
@@ -135,6 +136,22 @@ public class LibraryClient extends Application {
         } catch(IOException e){
             e.printStackTrace();
             return false;
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void login(String username){
+        try{
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            writer.println("login:" + username);
+            writer.flush();
+
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            List<String> checkedOutBooks = (List<String>) ois.readObject();
+            Platform.runLater(() -> libraryGUIController.updateCheckedOutList(checkedOutBooks));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

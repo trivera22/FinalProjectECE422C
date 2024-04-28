@@ -12,4 +12,10 @@ public class Book extends LibraryItem{
     public String toString(){
         return super.toString() + " : " + this.author + " : " + this.pages + " pages";
     }
+    public String getAuthor(){
+        return this.author;
+    }
+    public int getPages(){
+        return this.pages;
+    }
 }

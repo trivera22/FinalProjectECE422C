@@ -60,6 +60,14 @@ public class LibraryServer {
                     // handle checkout request from client
                     while (true) {
                         String message = reader.readLine();
+
+                        if(message.startsWith("login:")){
+                            String username = message.split(":")[1];
+                            List<String> checkedOutBooks = catalogue.getCheckedOutBooks(username);
+                            oos.writeObject(checkedOutBooks);
+                            oos.flush();
+                        }
+
                         if (message != null) {
                             String[] parts = message.split(":");
                             if (parts.length == 2) {

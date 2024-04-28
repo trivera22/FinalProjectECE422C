@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
+
+
 public class LibraryCatalogue {
     private HashMap<String, LibraryItem> items = new HashMap<>();
     private ReentrantLock lock = new ReentrantLock();
@@ -63,5 +65,15 @@ public class LibraryCatalogue {
         } catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public synchronized List<String> getCheckedOutBooks(String member){
+        List<String> checkedOutBooks = new ArrayList<>();
+        for(LibraryItem item : items.values()){
+            if(item.getCurrentHolder() != null && item.getCurrentHolder().equals(member)){
+                checkedOutBooks.add(item.getTitle());
+            }
+        }
+        return checkedOutBooks;
     }
 }
