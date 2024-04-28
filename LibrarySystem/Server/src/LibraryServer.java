@@ -10,8 +10,10 @@ import java.util.List;
 
 public class LibraryServer {
     private LibraryCatalogue catalogue = new LibraryCatalogue();
+    private static MemberManager memberManager;
 
     public static void main(String[] args) {
+        memberManager = new MemberManager();
         new LibraryServer().setupNetworking();
     }
 

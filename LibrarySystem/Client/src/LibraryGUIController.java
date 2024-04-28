@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +20,8 @@ public class LibraryGUIController {
     private Button checkoutButton;
     @FXML
     private Button returnButton;
+    @FXML
+    private TextField usernameField;
 
 
     private LibraryClient libraryClient;
@@ -77,4 +80,9 @@ public class LibraryGUIController {
         checkedOutList.getItems().clear();
         checkedOutList.getItems().addAll(checkedOutBooks);
     }
+
+    public void setUsernameField(String username) {
+        usernameField.setText(username);
+    }
+
 }

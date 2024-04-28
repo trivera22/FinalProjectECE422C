@@ -57,7 +57,7 @@ public class LibraryClient extends Application {
         loginLayout.add(passwordInput, 1, 1);
         loginLayout.add(loginButton, 1, 2);
 
-        Scene loginScene = new Scene(loginLayout, 250, 150);
+        Scene loginScene = new Scene(loginLayout, 300, 150);
         window.setScene(loginScene);
         window.show();
     }
@@ -70,6 +70,7 @@ public class LibraryClient extends Application {
             libraryGUIController = loader.getController();
             if(libraryGUIController != null) {
                 libraryGUIController.setLibraryClient(this);
+                libraryGUIController.setUsernameField(username);
             }
             Scene libraryScene = new Scene(libraryLayout, 640, 400);
             window.setScene(libraryScene);
@@ -83,10 +84,9 @@ public class LibraryClient extends Application {
     }
     private void setupNetworking() throws IOException, ClassNotFoundException {
         socket = new Socket(InetAddress.getLocalHost(), 4242);
-        System.out.println("network established");
-
         writer = new PrintWriter(socket.getOutputStream());
         ois = new ObjectInputStream(socket.getInputStream());
+        System.out.println("network established");
 
         try {
             Object obj;

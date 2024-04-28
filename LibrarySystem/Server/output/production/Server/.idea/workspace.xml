@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc9154e0-ac4f-4dee-a3f8-ebddb678a8d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MemberManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryGUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryGUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryCatalogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryCatalogue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryServer$ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryServer$ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryCatalogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryCatalogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +62,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Server",
+    "last_opened_file_path": "C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +134,8 @@
       <workItem from="1714005762870" duration="4595000" />
       <workItem from="1714012280834" duration="820000" />
       <workItem from="1714099401666" duration="7755000" />
-      <workItem from="1714195282037" duration="432000" />
+      <workItem from="1714195282037" duration="985000" />
+      <workItem from="1714278994331" duration="3069000" />
     </task>
     <servers />
   </component>
