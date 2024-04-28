@@ -3,10 +3,12 @@ package src;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryGUIController {
@@ -15,7 +17,13 @@ public class LibraryGUIController {
     @FXML
     public Button logoutButton;
     @FXML
-    private ListView<String> bookList;
+    public CheckBox bookCheckBox;
+    @FXML
+    public CheckBox gameCheckBox;
+    @FXML
+    public CheckBox comicCheckBox;
+    @FXML
+    private ListView<String> libraryItemList;
     @FXML
     private Button checkoutButton;
     @FXML
@@ -23,62 +31,88 @@ public class LibraryGUIController {
     @FXML
     private TextField usernameField;
 
-
     private LibraryClient libraryClient;
 
     public void setLibraryClient(LibraryClient libraryClient) {
         this.libraryClient = libraryClient;
-        checkoutButton.setOnAction(e -> checkoutBook());
-        returnButton.setOnAction(e->returnBook());
+        setupButtonActions();
+    }
 
-        // Add action event to logout button
-        logoutButton.setOnAction(e -> {
-            try {
-                if (libraryClient.getSocket() != null) {
-                    libraryClient.getSocket().close();
+    private void setupButtonActions(){
+        // checkout and return system
+        checkoutButton.setOnAction(e -> handleCheckout());
+        returnButton.setOnAction(e -> handleReturn());
+
+        // tagging system
+        bookCheckBox.setOnAction(e -> updateLibraryItemList());
+        gameCheckBox.setOnAction(e -> updateLibraryItemList());
+        comicCheckBox.setOnAction(e -> updateLibraryItemList());
+    }
+
+    private void handleCheckout(){
+       String selectedItem = libraryItemList.getSelectionModel().getSelectedItem();
+       if(selectedItem != null){
+           new Thread(() -> {
+               boolean success = libraryClient.checkoutItem(usernameField.getText(), selectedItem);
+               if(success){
+                   Platform.runLater(() -> {
+                       checkedOutList.getItems().add(selectedItem);
+                   });
+               }
+           }).start();
+       }
+    }
+
+    private void handleReturn(){
+        String selectedItem = (String) checkedOutList.getSelectionModel().getSelectedItem();
+        if(selectedItem != null){
+            new Thread(() -> {
+                boolean success = libraryClient.returnItem(usernameField.getText(), selectedItem);
+                if(success){
+                    Platform.runLater(() -> {
+                        checkedOutList.getItems().remove(selectedItem);
+                    });
                 }
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            }).start();
+        }
+    }
+
+    private void updateLibraryItemList(){
+        libraryItemList.getItems().clear();
+        if (bookCheckBox.isSelected()) {
+            libraryItemList.getItems().addAll(getLibraryItemsByType("Book"));
+        }
+        if (gameCheckBox.isSelected()) {
+            libraryItemList.getItems().addAll(getLibraryItemsByType("Game"));
+        }
+        if (comicCheckBox.isSelected()) {
+            libraryItemList.getItems().addAll(getLibraryItemsByType("Comic"));
+        }
+
+        if (!bookCheckBox.isSelected() && !gameCheckBox.isSelected() && !comicCheckBox.isSelected()) {
+            for(LibraryItem item : libraryClient.getAllLibraryItems()){
+                libraryItemList.getItems().add(item.getTitle());
             }
-            Platform.exit();
-        });
-    }
-    public void addBook(String book) {
-        bookList.getItems().add(book);
-    }
-
-    private void checkoutBook(){
-        System.out.println("checkout button pressed");
-        String selectedBook = bookList.getSelectionModel().getSelectedItem();
-        if(selectedBook != null){
-            new Thread(() -> {
-                boolean canCheckout = libraryClient.checkoutBook(libraryClient.getUsername(), selectedBook);
-                if (canCheckout) {
-                    Platform.runLater(() -> {
-                        checkedOutList.getItems().add(selectedBook);
-                    });
-                }
-            }).start();
         }
     }
 
-    private void returnBook(){
-        String selectedBook = (String) checkedOutList.getSelectionModel().getSelectedItem();
-        if(selectedBook != null){
-            new Thread(() -> {
-                boolean canReturn = libraryClient.returnBook(libraryClient.getUsername(), selectedBook);
-                if (canReturn) {
-                    Platform.runLater(() -> {
-                        checkedOutList.getItems().remove(selectedBook);
-                    });
-                }
-            }).start();
+    private List<String> getLibraryItemsByType(String type){
+        List<String> itemsByType = new ArrayList<>();
+        for(LibraryItem item : libraryClient.getAllLibraryItems()){
+            if(item.getItemType().equals(type)){
+                itemsByType.add(item.getTitle());
+            }
         }
+        return itemsByType;
     }
 
-    public void updateCheckedOutList(List<String> checkedOutBooks) {
+    public void updateCheckedOutList(List<String> items) {
         checkedOutList.getItems().clear();
-        checkedOutList.getItems().addAll(checkedOutBooks);
+        checkedOutList.getItems().addAll(items);
+    }
+
+    public void addItemToLibrary(String item){
+        libraryItemList.getItems().add(item);
     }
 
     public void setUsernameField(String username) {

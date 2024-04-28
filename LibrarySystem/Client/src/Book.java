@@ -1,5 +1,6 @@
 package src;
 
+
 public class Book extends LibraryItem{
     private int pages;
     private String author;
@@ -9,6 +10,7 @@ public class Book extends LibraryItem{
         this.pages = pages;
         this.author = author;
     }
+
     public String toString(){
         return super.toString() + " : " + this.author + " : " + this.pages + " pages";
     }
@@ -17,5 +19,8 @@ public class Book extends LibraryItem{
     }
     public int getPages(){
         return this.pages;
+    }
+    public void setAuthor(String author){
+        this.author = author;
     }
 }

@@ -10,10 +10,8 @@ import java.util.List;
 
 public class LibraryServer {
     private LibraryCatalogue catalogue = new LibraryCatalogue();
-    private static MemberManager memberManager;
 
     public static void main(String[] args) {
-        memberManager = new MemberManager();
         new LibraryServer().setupNetworking();
     }
 
@@ -47,15 +45,13 @@ public class LibraryServer {
                 try(ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
                     BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-                    //send all books to the client
+                    //send all library items to client
                     for (LibraryItem item : catalogue.getItems().values()) {
-                        if (item instanceof Book) {
-                            oos.writeObject((Book) item);
-                            oos.reset();
-                        }
+                        oos.writeObject(item); //send item as serialized object
+                        oos.reset(); //reset to avoid caching issues
                     }
 
-                    //send "end" message to indicate all books have been sent
+                    //send "end" message to indicate all items have been sent
                     oos.writeObject("end");
                     oos.reset();
 
@@ -63,38 +59,31 @@ public class LibraryServer {
                     while (true) {
                         String message = reader.readLine();
 
-                        if(message.startsWith("login:")){
+                        if(message.startsWith("login:") && message != null){
                             String username = message.split(":")[1];
                             List<String> checkedOutBooks = catalogue.getCheckedOutBooks(username);
                             oos.writeObject(checkedOutBooks);
                             oos.flush();
-                        }
-
-                        if (message != null) {
-                            String[] parts = message.split(":");
-                            if (parts.length == 2) {
-                                String username = parts[0];
-                                String bookTitle = parts[1];
-                                boolean result = catalogue.checkOutItem(bookTitle, username);
-                                System.out.println("checkout request received for book: " + bookTitle + " by user: " + username);
-                                System.out.println("sending response: " + result);
-                                oos.writeObject(result);
-                                oos.reset();
-                                oos.flush();
-                            }
-                        }
-
-                        if(message.startsWith("return:")){
-                            String[] parts = message.split(":");
-                            if(parts.length == 3){
-                                String username = parts[1];
-                                String bookTitle = parts[2];
-                                boolean result = catalogue.returnItem(bookTitle, username);
-                                System.out.println("return request received for book: " + bookTitle + " by user: " + username);
-                                System.out.println("sending response: " + result);
-                                oos.writeObject(result);
-                                oos.reset();
-                            }
+                        } else if(message != null && message.startsWith("checkout:")){
+                            String[] parts = message.substring(9).split(":");
+                            String username = parts[0];
+                            String itemTitle = parts[1];
+                            boolean result = catalogue.checkOutItem(itemTitle, username);
+                            System.out.println("checkout request received for item: " + itemTitle + " by user: " + username);
+                            System.out.println("sending response: " + result);
+                            oos.writeObject(result);
+                            oos.reset();
+                            oos.flush();
+                        }else if(message.startsWith("return:") && message != null){
+                            String[] parts = message.substring(7).split(":");
+                            String username = parts[0];
+                            String itemTitle = parts[1];
+                            boolean result = catalogue.returnItem(itemTitle, username);
+                            System.out.println("return request received for book: " + itemTitle + " by user: " + username);
+                            System.out.println("sending response: " + result);
+                            oos.writeObject(result);
+                            oos.reset();
+                            oos.flush();
                         }
                     }
                 } catch (IOException ioe) {

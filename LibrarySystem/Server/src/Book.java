@@ -1,6 +1,5 @@
 package src;
 
-import javax.swing.text.Document;
 
 public class Book extends LibraryItem{
     private int pages;
@@ -20,5 +19,8 @@ public class Book extends LibraryItem{
     }
     public int getPages(){
         return this.pages;
+    }
+    public void setAuthor(String author){
+        this.author = author;
     }
 }

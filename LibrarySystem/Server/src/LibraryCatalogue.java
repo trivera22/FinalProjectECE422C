@@ -15,7 +15,7 @@ public class LibraryCatalogue {
     private HashMap<String, LibraryItem> items = new HashMap<>();
     private ReentrantLock lock = new ReentrantLock();
     public LibraryCatalogue(){
-        loadBooksFromJson("src/libraryitems.json");
+        loadBooksFromJson("libraryitems.json");
     }
 
     public synchronized void addItem(LibraryItem item){

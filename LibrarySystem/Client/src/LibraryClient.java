@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryClient extends Application {
@@ -24,6 +25,7 @@ public class LibraryClient extends Application {
     private PrintWriter writer;
     private String username;
     private ObjectInputStream ois;
+    private List<LibraryItem> libraryItems = new ArrayList<>();
     private Socket socket;
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,7 +46,7 @@ public class LibraryClient extends Application {
             showLibraryInterface();
             Platform.runLater(() -> {
                 try {
-                    setupNetworking(); //pass the username to the setupNetworking method
+                    setupNetworking();
                 } catch (IOException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
@@ -70,9 +72,9 @@ public class LibraryClient extends Application {
             libraryGUIController = loader.getController();
             if(libraryGUIController != null) {
                 libraryGUIController.setLibraryClient(this);
-                libraryGUIController.setUsernameField(username);
+                libraryGUIController.setUsernameField(username); //sets username in library interface
             }
-            Scene libraryScene = new Scene(libraryLayout, 640, 400);
+            Scene libraryScene = new Scene(libraryLayout, 800, 430);
             window.setScene(libraryScene);
         } catch(IOException e){
             e.printStackTrace();
@@ -84,8 +86,9 @@ public class LibraryClient extends Application {
     }
     private void setupNetworking() throws IOException, ClassNotFoundException {
         socket = new Socket(InetAddress.getLocalHost(), 4242);
-        writer = new PrintWriter(socket.getOutputStream());
+        writer = new PrintWriter(socket.getOutputStream(), true); //auto flush enabled
         ois = new ObjectInputStream(socket.getInputStream());
+        libraryItems.clear();
         System.out.println("network established");
 
         try {
@@ -94,9 +97,12 @@ public class LibraryClient extends Application {
                 if (obj instanceof String && obj.equals("end")) {
                     break;
                 }
-                Book book = (Book) obj;
-                System.out.println("got the book: " + book);
-                libraryGUIController.addBook(book.getTitle());
+                if(obj instanceof LibraryItem){
+                    LibraryItem item = (LibraryItem) obj;
+                    System.out.println("got the item: " + item.getTitle());
+                    libraryItems.add(item);
+                    Platform.runLater(() -> libraryGUIController.addItemToLibrary(item.getTitle()));
+                }
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -105,12 +111,11 @@ public class LibraryClient extends Application {
         }
     }
 
-    public boolean checkoutBook(String username, String bookTitle){
+    public boolean checkoutItem(String username, String itemTitle){
         try{
-            String message  = username + ":" + bookTitle;
+            String message  = "checkout:" + username + ":" + itemTitle; //use checkout prefix
             System.out.println("sending checkout request: " + message);
             writer.println(message);
-            writer.flush();
 
             Boolean response = (Boolean) ois.readObject();
             System.out.println("received response: " + response);
@@ -123,12 +128,11 @@ public class LibraryClient extends Application {
         }
     }
 
-    public boolean returnBook(String username, String bookTitle){
+    public boolean returnItem(String username, String itemTitle){
         try{
-            String message = "return:" + username + ":" + bookTitle;
+            String message = "return:" + username + ":" + itemTitle; //use return prefix
             System.out.println("sending return request: " + message);
             writer.println(message);
-            writer.flush();
 
             Boolean response = (Boolean) ois.readObject();
             System.out.println("received response: " + response);
@@ -155,6 +159,10 @@ public class LibraryClient extends Application {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public List<LibraryItem> getAllLibraryItems() {
+        return libraryItems;
     }
 
     private void showErrorDialog(String message) {
