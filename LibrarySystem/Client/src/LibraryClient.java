@@ -65,7 +65,7 @@ public class LibraryClient extends Application {
         window.show();
     }
 
-    private void showLibraryInterface(){
+    public void showLibraryInterface(){
         //Main library layout
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LibraryLayout.fxml"));

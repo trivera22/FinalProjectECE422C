@@ -161,4 +161,16 @@ public class LibraryGUIController {
     public void setUsernameField(String username) {
         usernameField.setText(username);
     }
+
+    public boolean checkBoxIsSelected(String type) {
+        if (type.equals("Book")) {
+            return bookCheckBox.isSelected();
+        } else if (type.equals("Game")) {
+            return gameCheckBox.isSelected();
+        } else if (type.equals("Comic")) {
+            return comicCheckBox.isSelected();
+        } else {
+            return false;
+        }
+    }
 }
