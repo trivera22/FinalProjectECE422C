@@ -24,8 +24,8 @@
                </font>
             </Label>
             <Button fx:id="checkoutButton" layoutX="59.0" layoutY="250.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" text="Checkout" />
-            <Button layoutX="294.0" layoutY="342.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" text="Return" />
-            <Button layoutX="508.0" layoutY="165.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" text="Logout" />
+            <Button fx:id="returnButton" layoutX="294.0" layoutY="342.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" text="Return" />
+            <Button fx:id="logoutButton" layoutX="508.0" layoutY="165.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" text="Logout" />
       </children>
     </AnchorPane>
   </children>

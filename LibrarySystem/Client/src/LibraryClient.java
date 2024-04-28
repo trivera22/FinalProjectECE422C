@@ -2,6 +2,7 @@ package src;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class LibraryClient extends Application {
+    @FXML
+    private Button logoutButton;
 
     private Stage window;
     private LibraryGUIController libraryGUIController;
@@ -119,6 +122,24 @@ public class LibraryClient extends Application {
         }
     }
 
+    public boolean returnBook(String username, String bookTitle){
+        try{
+            String message = "return:" + username + ":" + bookTitle;
+            System.out.println("sending return request: " + message);
+            writer.println(message);
+            writer.flush();
+
+            Boolean response = (Boolean) ois.readObject();
+            System.out.println("received response: " + response);
+            return response;
+        } catch(IOException e){
+            e.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void showErrorDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -129,5 +150,9 @@ public class LibraryClient extends Application {
 
     public String getUsername(){
         return this.username;
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 }

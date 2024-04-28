@@ -73,6 +73,19 @@ public class LibraryServer {
                                 oos.flush();
                             }
                         }
+
+                        if(message.startsWith("return:")){
+                            String[] parts = message.split(":");
+                            if(parts.length == 3){
+                                String username = parts[1];
+                                String bookTitle = parts[2];
+                                boolean result = catalogue.returnItem(bookTitle, username);
+                                System.out.println("return request received for book: " + bookTitle + " by user: " + username);
+                                System.out.println("sending response: " + result);
+                                oos.writeObject(result);
+                                oos.reset();
+                            }
+                        }
                     }
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
