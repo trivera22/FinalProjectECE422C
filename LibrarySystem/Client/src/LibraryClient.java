@@ -2,6 +2,7 @@ package src;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -143,6 +144,35 @@ public class LibraryClient extends Application {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void refreshCheckedOutItems(String username){
+       Task<List<String>> task = new Task<List<String>>(){
+           @Override
+           protected List<String> call() throws Exception {
+               System.out.println("sending refresh request");
+               writer.println("refresh:" + username);
+               writer.flush();
+
+               Object response = ois.readObject();
+               System.out.println("received response" + response);
+               if(response instanceof List){
+                   return(List<String>) response;
+               }
+               return new ArrayList<>();
+           }
+       };
+
+       task.setOnSucceeded(e -> {
+           Platform.runLater(() -> libraryGUIController.updateCheckedOutList(task.getValue()));
+       });
+
+       task.setOnFailed(e -> {
+           Throwable exception = task.getException();
+           exception.printStackTrace();
+       });
+
+       new Thread(task).start();
     }
 
     public void login(String username){

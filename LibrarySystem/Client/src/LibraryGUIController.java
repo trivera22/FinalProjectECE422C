@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
+import java.net.URL;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +25,12 @@ public class LibraryGUIController {
     @FXML
     public CheckBox comicCheckBox;
     @FXML
+    public Button refreshButton;
+    @FXML
+    public Button searchButton;
+    @FXML
+    public TextField searchBar;
+    @FXML
     private ListView<String> libraryItemList;
     @FXML
     private Button checkoutButton;
@@ -32,16 +40,41 @@ public class LibraryGUIController {
     private TextField usernameField;
 
     private LibraryClient libraryClient;
+    private AudioClip buttonPressSound;
 
     public void setLibraryClient(LibraryClient libraryClient) {
+        initialize();
         this.libraryClient = libraryClient;
         setupButtonActions();
     }
 
+    public void initialize() {
+        URL soundResource = getClass().getResource("press_sound.mp3");
+        buttonPressSound = new AudioClip(soundResource.toString());
+    }
+
     private void setupButtonActions(){
         // checkout and return system
-        checkoutButton.setOnAction(e -> handleCheckout());
-        returnButton.setOnAction(e -> handleReturn());
+        checkoutButton.setOnAction(e -> {
+            handleCheckout();
+            buttonPressSound.play();
+        });
+        returnButton.setOnAction(e -> {
+            handleReturn();
+            buttonPressSound.play();
+        });
+        logoutButton.setOnAction(e -> {
+            buttonPressSound.play();
+            Platform.exit();
+        });
+        refreshButton.setOnAction(e -> {
+            String username = usernameField.getText();
+            libraryClient.refreshCheckedOutItems(username);
+        });
+        searchButton.setOnAction(e -> {
+            updateLibraryItemListSearch(searchBar.getText());
+        });
+
 
         // tagging system
         bookCheckBox.setOnAction(e -> updateLibraryItemList());
@@ -96,6 +129,15 @@ public class LibraryGUIController {
         }
     }
 
+    private void updateLibraryItemListSearch(String search){
+        libraryItemList.getItems().clear();
+        for(LibraryItem item : libraryClient.getAllLibraryItems()){
+            if (item.getTitle().toLowerCase().contains(search.toLowerCase())) {
+                libraryItemList.getItems().add(item.getTitle());
+            }
+        }
+    }
+
     private List<String> getLibraryItemsByType(String type){
         List<String> itemsByType = new ArrayList<>();
         for(LibraryItem item : libraryClient.getAllLibraryItems()){
@@ -105,6 +147,7 @@ public class LibraryGUIController {
         }
         return itemsByType;
     }
+
 
     public void updateCheckedOutList(List<String> items) {
         checkedOutList.getItems().clear();
@@ -118,5 +161,4 @@ public class LibraryGUIController {
     public void setUsernameField(String username) {
         usernameField.setText(username);
     }
-
 }

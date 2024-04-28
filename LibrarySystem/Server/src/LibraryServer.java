@@ -59,12 +59,7 @@ public class LibraryServer {
                     while (true) {
                         String message = reader.readLine();
 
-                        if(message.startsWith("login:") && message != null){
-                            String username = message.split(":")[1];
-                            List<String> checkedOutBooks = catalogue.getCheckedOutBooks(username);
-                            oos.writeObject(checkedOutBooks);
-                            oos.flush();
-                        } else if(message != null && message.startsWith("checkout:")){
+                        if(message != null && message.startsWith("checkout:")){
                             String[] parts = message.substring(9).split(":");
                             String username = parts[0];
                             String itemTitle = parts[1];
@@ -82,6 +77,14 @@ public class LibraryServer {
                             System.out.println("return request received for book: " + itemTitle + " by user: " + username);
                             System.out.println("sending response: " + result);
                             oos.writeObject(result);
+                            oos.reset();
+                            oos.flush();
+                        }else if(message != null && message.startsWith("refresh:")){
+                            System.out.println("refresh request received");
+                            String username = message.split(":")[1];
+                            List<String> checkedOutItems = catalogue.getCheckedOutItems(username);
+                            System.out.println("sending checked out items: " + checkedOutItems);
+                            oos.writeObject(checkedOutItems);
                             oos.reset();
                             oos.flush();
                         }

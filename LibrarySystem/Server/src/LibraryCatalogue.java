@@ -67,7 +67,7 @@ public class LibraryCatalogue {
         }
     }
 
-    public synchronized List<String> getCheckedOutBooks(String member){
+    public synchronized List<String> getCheckedOutItems(String member){
         List<String> checkedOutBooks = new ArrayList<>();
         for(LibraryItem item : items.values()){
             if(item.getCurrentHolder() != null && item.getCurrentHolder().equals(member)){
