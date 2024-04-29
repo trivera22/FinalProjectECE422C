@@ -10,10 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,6 +124,20 @@ public class LibraryClient extends Application {
 
             Boolean response = (Boolean) ois.readObject();
             System.out.println("received response: " + response);
+
+            if(response) {
+                Object receivedObject = ois.readObject();
+                if(receivedObject instanceof byte[]) {
+                    byte[] imageBytes = (byte[]) receivedObject;
+                    Files.write(Paths.get("receivedImage.jpg"), imageBytes);
+
+                    // Create an Image object from the file
+                    Image image = new Image("file:receivedImage.jpg");
+
+                    // Update the ImageView in the GUI
+                    Platform.runLater(() -> libraryGUIController.updateItemImage(image));
+                }
+            }
             return response;
         } catch(IOException e){
             e.printStackTrace();

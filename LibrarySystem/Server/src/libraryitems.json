@@ -5,7 +5,7 @@
     "author": "Charles Dickens",
     "pages": 341,
     "summary": "A historical novel set in London and Paris before and during the French Revolution.",
-    "imagePath": null,
+    "imagePath": "Images/a tale of two cities.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null
@@ -16,7 +16,7 @@
     "author": "F. Scott Fitzgerald",
     "pages": 180,
     "summary": "A novel set in the Roaring Twenties that follows the life of Jay Gatsby.",
-    "imagePath": null,
+    "imagePath": "Images/gatsby.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null
@@ -28,7 +28,7 @@
     "artist": "Hergé",
     "pages": 62,
     "summary": "A reporter embarks on a series of exciting adventures across the world.",
-    "imagePath": null,
+    "imagePath": "Images/tintin.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null
@@ -40,7 +40,7 @@
     "artist": "David Mazzucchelli",
     "pages": 48,
     "summary": "The beginning stages of Batman's journey as Gotham's protector.",
-    "imagePath": null,
+    "imagePath": "Images/batman.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null
@@ -50,7 +50,7 @@
     "title": "The Legend of Zelda Breath of the Wild",
     "platform": "Nintendo Switch",
     "summary": "An open-world adventure game set in the expansive kingdom of Hyrule.",
-    "imagePath": null,
+    "imagePath": "Images/zelda.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null
@@ -60,7 +60,7 @@
     "title": "Elden Ring",
     "platform": "PlayStation 4, Xbox One, Microsoft Windows",
     "summary": "An action role-playing game in a dark fantasy setting created by Hidetaka Miyazaki.",
-    "imagePath": null,
+    "imagePath": "Images/elden ring.jpg",
     "currentHolder": null,
     "pastHolders": [],
     "lastCheckedOut": null

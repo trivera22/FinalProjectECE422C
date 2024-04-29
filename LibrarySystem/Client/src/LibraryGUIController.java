@@ -2,12 +2,13 @@ package src;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 import java.net.URL;
+import javafx.scene.image.ImageView;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class LibraryGUIController {
     public Button searchButton;
     @FXML
     public TextField searchBar;
+    @FXML
+    public ImageView itemImage;
     @FXML
     private ListView<String> libraryItemList;
     @FXML
@@ -90,6 +93,10 @@ public class LibraryGUIController {
                if(success){
                    Platform.runLater(() -> {
                        checkedOutList.getItems().add(selectedItem);
+                   });
+               } else{
+                   Platform.runLater(() -> {
+                       showErrorDialog("Item is already checked out");
                    });
                }
            }).start();
@@ -162,15 +169,15 @@ public class LibraryGUIController {
         usernameField.setText(username);
     }
 
-    public boolean checkBoxIsSelected(String type) {
-        if (type.equals("Book")) {
-            return bookCheckBox.isSelected();
-        } else if (type.equals("Game")) {
-            return gameCheckBox.isSelected();
-        } else if (type.equals("Comic")) {
-            return comicCheckBox.isSelected();
-        } else {
-            return false;
-        }
+    private void showErrorDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public void updateItemImage(Image image) {
+        itemImage.setImage(image);
     }
 }

@@ -5,8 +5,11 @@ import java.io.ObjectOutputStream;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class LibraryServer {
     private LibraryCatalogue catalogue = new LibraryCatalogue();
@@ -55,38 +58,55 @@ public class LibraryServer {
                     oos.writeObject("end");
                     oos.reset();
 
-                    // handle checkout request from client
+                    //continually check for messages from client
                     while (true) {
-                        String message = reader.readLine();
+                        if(clientSocket.isClosed()){
+                            break;
+                        }
+                        try {
+                            String message = reader.readLine();
 
-                        if(message != null && message.startsWith("checkout:")){
-                            String[] parts = message.substring(9).split(":");
-                            String username = parts[0];
-                            String itemTitle = parts[1];
-                            boolean result = catalogue.checkOutItem(itemTitle, username);
-                            System.out.println("checkout request received for item: " + itemTitle + " by user: " + username);
-                            System.out.println("sending response: " + result);
-                            oos.writeObject(result);
-                            oos.reset();
-                            oos.flush();
-                        }else if(message.startsWith("return:") && message != null){
-                            String[] parts = message.substring(7).split(":");
-                            String username = parts[0];
-                            String itemTitle = parts[1];
-                            boolean result = catalogue.returnItem(itemTitle, username);
-                            System.out.println("return request received for book: " + itemTitle + " by user: " + username);
-                            System.out.println("sending response: " + result);
-                            oos.writeObject(result);
-                            oos.reset();
-                            oos.flush();
-                        }else if(message != null && message.startsWith("refresh:")){
-                            System.out.println("refresh request received");
-                            String username = message.split(":")[1];
-                            List<String> checkedOutItems = catalogue.getCheckedOutItems(username);
-                            System.out.println("sending checked out items: " + checkedOutItems);
-                            oos.writeObject(checkedOutItems);
-                            oos.reset();
-                            oos.flush();
+                            if (message != null && message.startsWith("checkout:")) {
+                                String[] parts = message.substring(9).split(":");
+                                String username = parts[0];
+                                String itemTitle = parts[1];
+                                boolean result = catalogue.checkOutItem(itemTitle, username);
+                                System.out.println("checkout request received for item: " + itemTitle + " by user: " + username);
+                                System.out.println("sending response: " + result);
+                                oos.writeObject(result);
+                                oos.reset();
+                                oos.flush();
+
+                                // if checkout is successful, send the image file
+                                if (result) {
+                                    LibraryItem item = catalogue.getItems().get(itemTitle);
+                                    File imageFile = new File(item.getImagePath());
+                                    byte[] imageBytes = Files.readAllBytes(imageFile.toPath());
+                                    oos.writeObject(imageBytes);
+                                    oos.reset();
+                                    oos.flush();
+                                }
+                            } else if (message.startsWith("return:") && message != null) {
+                                String[] parts = message.substring(7).split(":");
+                                String username = parts[0];
+                                String itemTitle = parts[1];
+                                boolean result = catalogue.returnItem(itemTitle, username);
+                                System.out.println("return request received for book: " + itemTitle + " by user: " + username);
+                                System.out.println("sending response: " + result);
+                                oos.writeObject(result);
+                                oos.reset();
+                                oos.flush();
+                            } else if (message != null && message.startsWith("refresh:")) {
+                                System.out.println("refresh request received");
+                                String username = message.split(":")[1];
+                                List<String> checkedOutItems = catalogue.getCheckedOutItems(username);
+                                System.out.println("sending checked out items: " + checkedOutItems);
+                                oos.writeObject(checkedOutItems);
+                                oos.reset();
+                                oos.flush();
+                            }
+                        }catch (SocketException se){
+                            break;
                         }
                     }
                 } catch (IOException ioe) {
