@@ -79,7 +79,7 @@ public class LibraryClient extends Application {
                 libraryGUIController.setLibraryClient(this);
                 libraryGUIController.setUsernameField(username); //sets username in library interface
             }
-            Scene libraryScene = new Scene(libraryLayout, 850, 430);
+            Scene libraryScene = new Scene(libraryLayout, 800, 430);
             window.setScene(libraryScene);
         } catch(IOException e){
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class LibraryClient extends Application {
         launch(args);
     }
     private void setupNetworking() throws IOException, ClassNotFoundException {
-        socket = new Socket("10.32.74.139", 2119);
+        socket = new Socket(InetAddress.getLocalHost(), 4242);
         writer = new PrintWriter(socket.getOutputStream(), true); //auto flush enabled
         ois = new ObjectInputStream(socket.getInputStream());
         libraryItems.clear();
