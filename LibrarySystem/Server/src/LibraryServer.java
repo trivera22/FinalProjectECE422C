@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class LibraryServer {
     private LibraryCatalogue catalogue = new LibraryCatalogue();
@@ -78,14 +81,33 @@ public class LibraryServer {
                                 oos.flush();
 
                                 // if checkout is successful, send the image file
+//                                if (result) {
+//                                    LibraryItem item = catalogue.getItems().get(itemTitle);
+//                                    File imageFile = new File(item.getImagePath());
+//                                    byte[] imageBytes = Files.readAllBytes(imageFile.toPath());
+//                                    oos.writeObject(imageBytes);
+//                                    oos.reset();
+//                                    oos.flush();
+//                                }
+
                                 if (result) {
                                     LibraryItem item = catalogue.getItems().get(itemTitle);
-                                    File imageFile = new File(item.getImagePath());
-                                    byte[] imageBytes = Files.readAllBytes(imageFile.toPath());
-                                    oos.writeObject(imageBytes);
-                                    oos.reset();
-                                    oos.flush();
+                                    InputStream is = getClass().getClassLoader().getResourceAsStream(item.getImagePath());
+                                    if (is == null) {
+                                        System.err.println("Could not find file: " + item.getImagePath());
+                                        return;
+                                    }
+
+                                    try {
+                                        byte[] imageBytes = readBytesFromInputStream(is);
+                                        oos.writeObject(imageBytes);  // Assuming 'oos' is your ObjectOutputStream
+                                        oos.reset();
+                                        oos.flush();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 }
+
                             } else if (message.startsWith("return:") && message != null) {
                                 String[] parts = message.substring(7).split(":");
                                 String username = parts[0];
@@ -112,6 +134,23 @@ public class LibraryServer {
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
+        }
+
+        public byte[] readBytesFromInputStream(InputStream inputStream) throws IOException {
+            if (inputStream == null) {
+                throw new IllegalArgumentException("Input stream must not be null");
+            }
+
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            int nRead;
+            byte[] data = new byte[16384];  // Size can be adjusted according to needs
+
+            while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
+
+            buffer.flush();
+            return buffer.toByteArray();
         }
     }
 }

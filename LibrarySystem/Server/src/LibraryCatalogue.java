@@ -4,11 +4,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class LibraryCatalogue {
@@ -55,15 +58,31 @@ public class LibraryCatalogue {
     }
 
     private void loadBooksFromJson(String filePath){
-        try{
+//        try{
+//            Gson gson = new Gson();
+//            Type bookListType = new TypeToken<ArrayList<Book>>(){}.getType();
+//            List<Book> bookList = gson.fromJson(new FileReader(filePath), bookListType);
+//            for(Book book : bookList){
+//                addItem(book);
+//            }
+//        } catch(Exception e){
+//            e.printStackTrace();
+//        }
+        String resourcePath = "src/main/resources/libraryitems.json";  // Correct path for resources
+
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                throw new RuntimeException("Resource not found: " + resourcePath);
+            }
+            InputStreamReader reader = new InputStreamReader(inputStream);
             Gson gson = new Gson();
             Type bookListType = new TypeToken<ArrayList<Book>>(){}.getType();
-            List<Book> bookList = gson.fromJson(new FileReader(filePath), bookListType);
-            for(Book book : bookList){
+            List<Book> bookList = gson.fromJson(reader, bookListType);
+            for (Book book : bookList) {
                 addItem(book);
             }
-        } catch(Exception e){
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

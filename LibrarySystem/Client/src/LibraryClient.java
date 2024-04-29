@@ -125,20 +125,36 @@ public class LibraryClient extends Application {
             Boolean response = (Boolean) ois.readObject();
             System.out.println("received response: " + response);
 
-            if(response) {
-                Object receivedObject = ois.readObject();
-                if(receivedObject instanceof byte[]) {
-                    byte[] imageBytes = (byte[]) receivedObject;
-                    Files.write(Paths.get("receivedImage.jpg"), imageBytes);
+//            if(response) {
+//                Object receivedObject = ois.readObject();
+//                if(receivedObject instanceof byte[]) {
+//                    byte[] imageBytes = (byte[]) receivedObject;
+//                    Files.write(Paths.get("receivedImage.jpg"), imageBytes);
+//
+//                    // Create an Image object from the file
+//                    Image image = new Image("file:receivedImage.jpg");
+//
+//                    // Update the ImageView in the GUI
+//                    Platform.runLater(() -> libraryGUIController.updateItemImage(image));
+//                }
+//            }
+//            return response;
 
-                    // Create an Image object from the file
-                    Image image = new Image("file:receivedImage.jpg");
+            if (response) {
+                Object receivedObject = ois.readObject();
+                if (receivedObject instanceof byte[]) {
+                    byte[] imageBytes = (byte[]) receivedObject;
+
+                    // Create an InputStream from the byte array and then create an Image
+                    InputStream in = new ByteArrayInputStream(imageBytes);
+                    Image image = new Image(in);
 
                     // Update the ImageView in the GUI
                     Platform.runLater(() -> libraryGUIController.updateItemImage(image));
                 }
             }
             return response;
+
         } catch(IOException e){
             e.printStackTrace();
             return false;
