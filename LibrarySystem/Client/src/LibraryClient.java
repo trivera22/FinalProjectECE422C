@@ -90,7 +90,7 @@ public class LibraryClient extends Application {
         launch(args);
     }
     private void setupNetworking() throws IOException, ClassNotFoundException {
-        socket = new Socket("10.32.74.139", 2119);
+        socket = new Socket(InetAddress.getLocalHost(), 4242);
         writer = new PrintWriter(socket.getOutputStream(), true); //auto flush enabled
         ois = new ObjectInputStream(socket.getInputStream());
         libraryItems.clear();
