@@ -1,30 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Server:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc9154e0-ac4f-4dee-a3f8-ebddb678a8d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mindrot_jbcrypt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MemberManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryGUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryGUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/src/LibraryLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryGUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/LibraryLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/LibraryLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/artifacts/Client_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Server_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/output/production/Client/receivedImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/output/production/Client/receivedImage.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/libraries/mongodb_driver_sync.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output/production/Server/src/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryCatalogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryCatalogue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryServer$ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryServer$ClientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/production/Server/src/LibraryServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/LibraryServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/production/Server/src/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/MemberManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/libraryitems.json" beforeDir="false" afterPath="$PROJECT_DIR$/output/production/Server/src/libraryitems.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/libraries/mongodb_driver_sync.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/production/Server/src/out/production/Server/src/libraryitems.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/libraries/mongodb_driver_sync.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/zelda.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/zelda.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LibraryCatalogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryCatalogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LibraryServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libraryitems.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/libraryitems.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/libraries/mongodb_driver_sync.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Book.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Comic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/a tale of two cities.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/batman.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/elden ring.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/gatsby.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/tintin.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Images/zelda.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/LibraryCatalogue$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/LibraryCatalogue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/LibraryItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/LibraryServer$ClientHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/LibraryServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/Server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/Server/src/libraryitems.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +110,7 @@
     "Application.LibraryServer.executor": "Run",
     "Application.Server.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JAR Application.LibraryServer.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -63,13 +120,13 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Client",
+    "last_opened_file_path": "C:/Users/Owner/Desktop/FinalProjectECE422C/LibrarySystem/Server/output/artifacts/Server_jar/Server.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
@@ -81,7 +138,13 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.LibraryServer">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\Desktop\FinalProjectECE422C\LibrarySystem\Server\src\out\artifacts\Server_jar" />
+      <recent name="C:\Users\Owner\Desktop\FinalProjectECE422C\LibrarySystem\Server\output\artifacts\Server_jar" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JAR Application.LibraryServer">
     <configuration name="LibraryServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.LibraryServer" />
       <module name="Server" />
@@ -95,23 +158,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.network.Server" />
-      <module name="Server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.network.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="LibraryServer" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/output/artifacts/Server_jar/Server.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Owner\Desktop\FinalProjectECE422C\LibrarySystem\Server" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Server:jar" />
+        </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.LibraryServer" />
+      <item itemvalue="JAR Application.LibraryServer" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.LibraryServer" />
-        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -137,6 +200,9 @@
       <workItem from="1714099401666" duration="7755000" />
       <workItem from="1714195282037" duration="985000" />
       <workItem from="1714278994331" duration="4276000" />
+      <workItem from="1714350957174" duration="532000" />
+      <workItem from="1714351547295" duration="89000" />
+      <workItem from="1714351753784" duration="1684000" />
     </task>
     <servers />
   </component>

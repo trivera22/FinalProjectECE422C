@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Server:jar">
+    <output-path>$PROJECT_DIR$/output/artifacts/Server_jar</output-path>
+    <root id="archive" name="Server.jar">
+      <element id="module-output" name="Server" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mindrot/jbcrypt/0.4/jbcrypt-0.4.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/libraryitems.json" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/Images" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/a tale of two cities.jpg" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/batman.jpg" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/elden ring.jpg" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/gatsby.jpg" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/tintin.jpg" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/Images/zelda.jpg" />
+    </root>
+  </artifact>
+</component>
