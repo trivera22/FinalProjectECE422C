@@ -22,7 +22,7 @@ public class LibraryServer {
 
     private void setupNetworking() {
         try {
-            ServerSocket server = new ServerSocket(4242);
+            ServerSocket server = new ServerSocket(2119);
             while (true) {
                 Socket clientSocket = server.accept();
                 System.out.println("incoming transmission");
